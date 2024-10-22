@@ -1,0 +1,59 @@
+============================================================================================================================================================
+                                      ****************** Data Modelling *******************
+============================================================================================================================================================
+
+Creating Relationships using "Drag & Drop:
+
+1) Import the CSV file (7files) in to Power BI.
+2) Delete the Auto detected Relationships between the Fact and Dimension Tables.
+3) Clean the Data according to desired Data Types.
+4) Check Date Column (Should not contains any blank/null values).
+5) Identify the **Fact_Table** and **Dimension_Table** amongst all the given tables(7).
+6) FACT TABLE: "Order Dataset"
+	DIMENSION TABLE : "Delivery Status Dataset"
+			  "Product Dataset"
+                          "Customer Dataset"
+                          "Seller Dataset"
+                          "Payment mode Dataset"
+                          "Delivery mode Dataset"
+
+7) Create a relationship between "Product Dataset" & "Order Dataset" by dragging "Product id" column from "Product Dataset" Table to the "Product id" column of "Order Dataset" Table
+8) Select Cardinality: "One to Many" &
+	  Cross Filter Direction: "Single"
+
+9) Create a relationship between "Delivery status Dataset" & "Order Dataset" by dragging "Order id" column from "Delivery status Dataset" Table to the "Order id" column of "Order Dataset" Table
+10) Select Cardinality: "One to Many" &
+	  Cross Filter Direction: "Single"
+
+11) Create a relationship between "Payment mode Dataset" & "Order Dataset" by dragging "Order id" column from "Payment mode Dataset" Table to the "Order id" column of "Order Dataset" Table
+12) Select Cardinality: "One to Many" &
+	  Cross Filter Direction: "Single"
+
+
+============================================================================================================================================================
+
+Creating Relationship using "Manage Relationship" function:
+
+
+1) Click on "Manage Relationship" under "Modelling" Tab or by going to "Model View".
+2) Check the existing relationships that we have created using drag & drop func.
+3) Click on "New Relationship" under "Manage Relationship" window.
+4) Under "New Relationship" window, select "Seller Dataset" for "From Table" tab and select "Order Dataset" under "To Table" tab.
+5) Choose "Seller id" from "Seller Dataset" & "Seller id" from "Order Dataset" then click "Save".
+
+
+6) Again Click on "New Relationship" under "Manage Relationship" window to create relationship between  "Customer Dataset" & "Order Dataset".
+7) Under "New Relationship" window, select "Customer Dataset" for "From Table" tab and select "Order Dataset" under "To Table" tab.
+8) Choose "Customer id" from "Seller Dataset" & "Customer id" from "Order Dataset" then click "Save".
+
+
+============================================================================================================================================================
+
+Create a Calendar Table:
+
+1) Date = CALENDAR(MIN(orders_dataset[order_date]), MAX(orders_dataset[order_date]))
+2) Create Relationship by simply dragging the "Date" column from "Date" Table to "order_date" column in "Order Dataset" Table.
+
+============================================================================================================================================================
+                                               *********** Now the Model is ready for analysis ***********
+============================================================================================================================================================
